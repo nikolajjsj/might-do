@@ -12,14 +12,9 @@ export default function MainScreen() {
   }, [])
 
   return (
-    <Center _dark={{ bg: 'blueGray.900' }} _light={{ bg: 'blueGray.50' }} px={4} flex={1}>
-      <VStack space={5} alignItems="center">
-        <Pressable onPress={handlePressCheckbox}>
-          <TaskItem isDone={checked} onToggleCheckBox={handlePressCheckbox} />
-        </Pressable>
-        <Box p={8} bg={useColorModeValue('red.500', 'yellow.500')}>
-          <Text>Hello</Text>
-        </Box>
+    <Center _dark={{ bg: 'blueGray.900' }} _light={{ bg: 'blueGray.50' }} flex={1}>
+      <VStack space={5} alignItems="center" w="full">
+        <TaskItem isDone={checked} onToggleCheckBox={handlePressCheckbox} subject="Task Item!" />
         <ThemeToggle />
       </VStack>
     </Center >
