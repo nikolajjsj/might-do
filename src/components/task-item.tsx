@@ -6,6 +6,7 @@ import AnimatedTaskLabel from './animated-task-label'
 import Swipable from './swipable'
 import { Feather } from '@expo/vector-icons'
 import { PanGestureHandlerProps } from 'react-native-gesture-handler'
+import AnimatedColorBox from './animated-color-box'
 
 interface Props extends Pick<PanGestureHandlerProps, 'simultaneousHandlers'> {
   isEditing: boolean,
@@ -48,18 +49,18 @@ const TaskItem = (props: Props) => {
 
   return (
     <Swipable simultaneousHandlers={simultaneousHandlers} onSwipeLeft={onRemove} backView={
-      <Box w="full" h="full" bg="red.500" alignItems="flex-end" justifyContent="center" pr={4}>
+      <AnimatedColorBox w="full" h="full" bg="red.500" alignItems="flex-end" justifyContent="center" pr={4}>
         <Icon color="white" as={<Feather name="trash-2" />} />
-      </Box>
+      </AnimatedColorBox>
     }>
       <HStack
         alignItems="center"
         w="full"
         px={4}
         py={2}
-        bg={useColorModeValue('warmGray.50', 'primary.900')}
+        bg={useColorModeValue('warmGray.50', 'blueGray.900')}
       >
-        <Box width={30} height={30}>
+        <Box width={30} height={30} mr={2}>
           <Pressable onPress={onToggleCheckBox}>
             <AnimatedCheckbox
               highlightColor={highlightColor}
